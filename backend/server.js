@@ -7,7 +7,10 @@ const db = require('./database');
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.resolve(__dirname, '../frontend')));
+const fs = require('fs');
+const distPath = path.resolve(__dirname, '../frontend/dist');
+const rawPath = path.resolve(__dirname, '../frontend');
+app.use(express.static(fs.existsSync(distPath) ? distPath : rawPath));
 
 function hashPassword(password) {
     const salt = crypto.randomBytes(16).toString('hex');

@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] { display: none !important; }
+.custom-scroll::-webkit-scrollbar { width: 4px; }
+.custom-scroll::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+#map { height: 500px; width: 100%; z-index: 1; }
+
+/* Premium custom animations and icon support */
+@keyframes custom-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+.animate-pulse-slow {
+    animation: custom-pulse 2s infinite ease-in-out;
+}
+.custom-hosp-icon, .custom-user-icon {
+    background: none !important;
+    border: none !important;
+}
+@keyframes voice-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    70% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+.animate-voice-listening {
+    animation: voice-pulse 1.5s infinite ease-in-out;
+}
+
+/* High-end Glassmorphism & Micro-animations */
+.glass-card {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dark .glass-card {
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+}
+.glass-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(99, 102, 241, 0.45);
+    box-shadow: 0 24px 50px -12px rgba(99, 102, 241, 0.18);
+}
+.dark .glass-card:hover {
+    background: rgba(15, 23, 42, 0.96);
+    border-color: rgba(99, 102, 241, 0.35);
+    box-shadow: 0 24px 50px -12px rgba(99, 102, 241, 0.45);
+}
+.doctor-img-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card:hover .doctor-img-container {
+    box-shadow: 0 16px 32px rgba(99, 102, 241, 0.22);
+    transform: scale(1.05);
+}
+.doctor-img-container img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card:hover .doctor-img-container img {
+    transform: scale(1.12);
+}
+
+/* Shimmer gradient overlay */
+@keyframes shimmer-sweep {
+    0% { transform: translateX(-150%) skewX(-25deg); }
+    100% { transform: translateX(150%) skewX(-25deg); }
+}
+.shimmer-effect::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+    transform: translateX(-150%) skewX(-25deg);
+}
+.glass-card:hover .shimmer-effect::after {
+    animation: shimmer-sweep 1.5s ease-in-out;
+}
+
+/* Pulsing green status */
+.status-pulse-online {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #10B981;
+    display: inline-block;
+    position: relative;
+}
+.status-pulse-online::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #10B981;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: ping 1.5s infinite ease-in-out;
+    opacity: 0.75;
+}
+
+/* Dynamic glow background blobs */
+.glow-blob-purple {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(168,85,247,0.12) 0%, rgba(168,85,247,0) 70%);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+}
+.glow-blob-indigo {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, rgba(99,102,241,0) 70%);
+    filter: blur(50px);
+    pointer-events: none;
+    z-index: 0;
+}
