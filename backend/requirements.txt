@@ -1,0 +1,11 @@
+# MedCore 302 - Backend Python Requirements
+# Note: The core backend service is powered by Node.js (Express).
+# This file is initialized for future Python integrations (e.g., machine learning or diagnostic analytical scripts).
+
+# FastAPI / Flask (if adding a Python-based microservice)
+# fastapi==0.111.0
+# uvicorn==0.29.0
+
+# Data Analysis & Science (optional)
+# numpy==1.26.4
+# pandas==2.2.2
