@@ -1,11 +1,11 @@
 # 🏥 MedCore 302 — Indian Healthcare Portal
 
-> A full-stack healthcare web application prototype designed around a patient dashboard: doctor scheduling, health analytics, medical record vault, facilities map, and emergency workflows.
+> A full-stack healthcare web application prototype designed around a centralized patient dashboard: doctor scheduling, health analytics, medical record vault, facilities map, and emergency workflows.
 
 ---
 
 > [!WARNING]
-> **Prototype & Educational Disclaimer**: MedCore 302 is an experimental prototype application. Biomarkers, ECG waveforms, triage recommendations, disease risk predictions, and drug interaction evaluations are simulated/rules-based and **must not** be used as clinical medical advice or a substitute for professional healthcare consultations.
+> **Prototype & Educational Disclaimer**: MedCore 302 is an experimental prototype application. Biomarkers, ECG waveforms, triage recommendations, disease risk predictions, and drug interaction evaluations are simulated or rules-based and **must not** be used as clinical medical advice or a substitute for professional healthcare consultations.
 
 ---
 
@@ -17,15 +17,17 @@
 - [Project Structure](#project-structure)
 - [API Reference](#api-reference)
 - [Local Development Setup](#local-development-setup)
-- [Production Deployment](#production-deployment)
+- [Deployment Guide](#deployment-guide)
 - [Security Considerations](#security-considerations)
+- [Future Roadmap](#future-roadmap)
+- [Author & Support](#author--support)
 
 ---
 
 ## 🔎 Overview
 
-MedCore 302 provides a unified healthcare interface for Indian patients, healthcare providers, and emergency services:
-- **Patient Dashboard**: Real-time simulated telemetry (BPM, Blood Pressure, SpO2, and interactive canvas ECG lead waveform).
+MedCore 302 provides a unified healthcare interface for patients, healthcare providers, and emergency services:
+- **Patient Dashboard**: Real-time simulated telemetry (BPM, blood pressure, SpO2, and interactive canvas ECG lead waveform).
 - **Specialist Directory & Scheduling**: Active weekday filtering, appointment collision prevention, and time slot reservations.
 - **Rules-Based Clinical Triage**: Symptom evaluation, preliminary health score matrix, and specialist routing.
 - **Drug Interaction Checker**: Heuristic contraindication analysis for concurrent medications.
@@ -104,6 +106,8 @@ medcore-302/
 │   │   │   ├── password.service.js
 │   │   │   └── health.service.js
 │   │   └── db.js               # Promisified SQLite3 wrapper and schema initializer
+│   ├── test/                   # Automated unit tests (Node.js test runner)
+│   │   └── health.test.js
 │   ├── database.js             # Backward-compatible database export
 │   ├── server.js               # Express application entry point
 │   └── package.json
@@ -176,6 +180,7 @@ cd backend && npm install
 
 # Install frontend dependencies
 cd ../frontend && npm install
+cd ..
 ```
 
 ### 2. Start Development Servers
@@ -188,20 +193,25 @@ npm run dev
 
 Vite automatically proxies all `/api` requests to `http://localhost:3000`.
 
+### 3. Run Automated Tests
+```bash
+npm test
+```
+
 ---
 
-## 🌐 Production Deployment
+## 🌐 Deployment Guide
 
-### Frontend (e.g. Vercel / Netlify / Cloudflare Pages)
+### Frontend — Vercel / Netlify / Cloudflare Pages
 - **Root Directory**: `frontend`
 - **Build Command**: `npm run build`
 - **Output Directory**: `dist`
 
-### Backend (e.g. Render / Railway / Fly.io)
+### Backend — Render / Railway / Fly.io
 - **Root Directory**: `backend`
 - **Build Command**: `npm install`
 - **Start Command**: `node server.js`
-- **Persistent Volume**: Attach a persistent volume to preserve `medcore.sqlite` across redeployments. Set `DB_PATH=/path/to/volume/medcore.sqlite`.
+- **Persistent Storage**: Attach a persistent volume to preserve `medcore.sqlite` across redeployments. Set `DB_PATH=/path/to/volume/medcore.sqlite`.
 
 ---
 
@@ -210,3 +220,23 @@ Vite automatically proxies all `/api` requests to `http://localhost:3000`.
 - Passwords are encrypted using salted PBKDF2 (100,000 iterations, 64-byte key length, SHA-512) executed asynchronously to prevent event loop blocking.
 - File uploads in the medical vault have strict payload size limits (10MB max).
 - Before deploying to a production clinical environment, integrate signed JWT/session tokens, rate limiting, and HIPAA/DISHA compliance audits.
+
+---
+
+## 🔭 Future Roadmap
+
+- Connect to validated healthcare and telemedicine APIs
+- Replace heuristic scoring with clinically validated diagnostic models
+- Add FHIR-compatible electronic medical records (EMR)
+- Add wearable and telemetry device integrations
+- Integrate S3/GCS object storage for medical documents
+- Add role-based access control (Doctor, Patient, Admin)
+- Set up automated CI/CD deployment pipelines
+
+---
+
+## 👨‍💻 Author & Support
+
+**Deepanshu Kumar Pandit**  
+GitHub: [@Deepanshu779](https://github.com/Deepanshu779)  
+Repository: [https://github.com/Deepanshu779/medcore302](https://github.com/Deepanshu779/medcore302)
