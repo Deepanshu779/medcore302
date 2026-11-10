@@ -1,0 +1,9 @@
+[
+    { "id": 1, "name": "AIIMS - Delhi", "lat": 28.5672, "lng": 77.2100, "beds": 124, "waitTime": "45 mins", "phone": "+91-11-26588500", "emergency": true },
+    { "id": 2, "name": "Indraprastha Apollo Hospital", "lat": 28.5359, "lng": 77.2872, "beds": 42, "waitTime": "15 mins", "phone": "+91-11-26925858", "emergency": true },
+    { "id": 3, "name": "Fortis Memorial Research Institute", "lat": 28.4489, "lng": 77.0725, "beds": 18, "waitTime": "10 mins", "phone": "+91-124-4962200", "emergency": true },
+    { "id": 4, "name": "Max Super Speciality Hospital Saket", "lat": 28.5284, "lng": 77.2114, "beds": 67, "waitTime": "30 mins", "phone": "+91-11-26515050", "emergency": false },
+    { "id": 5, "name": "Medanta - The Medicity", "lat": 28.4358, "lng": 77.0401, "beds": 153, "waitTime": "20 mins", "phone": "+91-124-4141414", "emergency": true },
+    { "id": 6, "name": "Sir Ganga Ram Hospital", "lat": 28.6385, "lng": 77.1895, "beds": 29, "waitTime": "5 mins", "phone": "+91-11-25750000", "emergency": false }
+]
+
