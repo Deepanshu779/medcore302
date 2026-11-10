@@ -10,6 +10,8 @@ frontend/dist/
 # Environment variables
 .env
 .env.*
+!.env.example
+
 
 # Logs
 *.log
